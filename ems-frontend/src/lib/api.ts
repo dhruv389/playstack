@@ -3,7 +3,9 @@
  * All calls go through this module — handles auth token injection and error normalization.
  */
 
-const BASE_URL = '/api'
+const BASE_URL = import.meta.env.VITE_API_BASE_URL
+  ? `${import.meta.env.VITE_API_BASE_URL}/api`
+  : 'https://playstack-99go.onrender.com/api'
 
 // Token helpers
 export const getToken = (): string | null => localStorage.getItem('ems-token')
