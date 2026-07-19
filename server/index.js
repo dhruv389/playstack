@@ -19,7 +19,9 @@ app.use(
     origin: [
       'http://localhost:5173',
       'http://localhost:3000',
-      /\.netlify\.app$/,        // any Netlify preview/deploy URL
+      'https://playstack-iota.vercel.app',
+      /\.vercel\.app$/,         // any Vercel preview URL
+      /\.netlify\.app$/,
       /\.netlify\.live$/,
     ],
     credentials: true,
