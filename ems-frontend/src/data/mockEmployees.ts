@@ -1,0 +1,217 @@
+import type { Employee } from '../types';
+
+// Deterministic avatar URLs (pravatar) so photos stay stable across reloads.
+const avatar = (seed: number) => `https://i.pravatar.cc/150?img=${seed}`;
+
+export const initialEmployees: Employee[] = [
+  {
+    id: 'emp-001', employeeId: 'ORB-1001', name: 'Aarav Sharma', email: 'aarav.sharma@orbit.io',
+    phone: '+91 98200 11122', department: 'Engineering', designation: 'C-Level', salary: 5200000,
+    joiningDate: '2018-01-15', status: 'Active', role: 'Super Admin', reportingManagerId: null,
+    profileImage: avatar(12),
+  },
+  {
+    id: 'emp-002', employeeId: 'ORB-1002', name: 'Priya Nair', email: 'priya.nair@orbit.io',
+    phone: '+91 98200 22233', department: 'Human Resources', designation: 'Director', salary: 3800000,
+    joiningDate: '2018-03-20', status: 'Active', role: 'HR Manager', reportingManagerId: 'emp-001',
+    profileImage: avatar(47),
+  },
+  {
+    id: 'emp-003', employeeId: 'ORB-1003', name: 'Kabir Mehta', email: 'kabir.mehta@orbit.io',
+    phone: '+91 98200 33344', department: 'Engineering', designation: 'Director', salary: 4100000,
+    joiningDate: '2018-06-01', status: 'Active', role: 'Employee', reportingManagerId: 'emp-001',
+    profileImage: avatar(13),
+  },
+  {
+    id: 'emp-004', employeeId: 'ORB-1004', name: 'Sara Thomas', email: 'sara.thomas@orbit.io',
+    phone: '+91 98200 44455', department: 'Product', designation: 'Director', salary: 3950000,
+    joiningDate: '2018-09-10', status: 'Active', role: 'Employee', reportingManagerId: 'emp-001',
+    profileImage: avatar(25),
+  },
+  {
+    id: 'emp-005', employeeId: 'ORB-1005', name: 'Rohan Verma', email: 'rohan.verma@orbit.io',
+    phone: '+91 98201 55566', department: 'Sales', designation: 'Director', salary: 3700000,
+    joiningDate: '2019-01-11', status: 'Active', role: 'Employee', reportingManagerId: 'emp-001',
+    profileImage: avatar(14),
+  },
+  {
+    id: 'emp-006', employeeId: 'ORB-1006', name: 'Neha Kapoor', email: 'neha.kapoor@orbit.io',
+    phone: '+91 98201 66677', department: 'Human Resources', designation: 'Manager', salary: 2200000,
+    joiningDate: '2019-02-18', status: 'Active', role: 'HR Manager', reportingManagerId: 'emp-002',
+    profileImage: avatar(48),
+  },
+  {
+    id: 'emp-007', employeeId: 'ORB-1007', name: 'Arjun Iyer', email: 'arjun.iyer@orbit.io',
+    phone: '+91 98201 77788', department: 'Engineering', designation: 'Senior Manager', salary: 2900000,
+    joiningDate: '2019-04-22', status: 'Active', role: 'Employee', reportingManagerId: 'emp-003',
+    profileImage: avatar(15),
+  },
+  {
+    id: 'emp-008', employeeId: 'ORB-1008', name: 'Meera Pillai', email: 'meera.pillai@orbit.io',
+    phone: '+91 98201 88899', department: 'Engineering', designation: 'Manager', salary: 2450000,
+    joiningDate: '2019-07-08', status: 'Active', role: 'Employee', reportingManagerId: 'emp-003',
+    profileImage: avatar(29),
+  },
+  {
+    id: 'emp-009', employeeId: 'ORB-1009', name: 'Vikram Rao', email: 'vikram.rao@orbit.io',
+    phone: '+91 98202 99900', department: 'Product', designation: 'Manager', salary: 2350000,
+    joiningDate: '2019-08-19', status: 'Active', role: 'Employee', reportingManagerId: 'emp-004',
+    profileImage: avatar(16),
+  },
+  {
+    id: 'emp-010', employeeId: 'ORB-1010', name: 'Ishita Desai', email: 'ishita.desai@orbit.io',
+    phone: '+91 98202 10011', department: 'Design', designation: 'Manager', salary: 2300000,
+    joiningDate: '2019-11-02', status: 'Active', role: 'Employee', reportingManagerId: 'emp-004',
+    profileImage: avatar(31),
+  },
+  {
+    id: 'emp-011', employeeId: 'ORB-1011', name: 'Dev Malhotra', email: 'dev.malhotra@orbit.io',
+    phone: '+91 98202 21122', department: 'Sales', designation: 'Manager', salary: 2100000,
+    joiningDate: '2020-01-14', status: 'Active', role: 'Employee', reportingManagerId: 'emp-005',
+    profileImage: avatar(17),
+  },
+  {
+    id: 'emp-012', employeeId: 'ORB-1012', name: 'Ananya Bose', email: 'ananya.bose@orbit.io',
+    phone: '+91 98202 32233', department: 'Marketing', designation: 'Manager', salary: 2050000,
+    joiningDate: '2020-02-27', status: 'Active', role: 'Employee', reportingManagerId: 'emp-005',
+    profileImage: avatar(32),
+  },
+  {
+    id: 'emp-013', employeeId: 'ORB-1013', name: 'Sanya Chopra', email: 'sanya.chopra@orbit.io',
+    phone: '+91 98202 43344', department: 'Human Resources', designation: 'Senior Associate', salary: 1250000,
+    joiningDate: '2020-05-11', status: 'Active', role: 'Employee', reportingManagerId: 'emp-006',
+    profileImage: avatar(33),
+  },
+  {
+    id: 'emp-014', employeeId: 'ORB-1014', name: 'Yash Khanna', email: 'yash.khanna@orbit.io',
+    phone: '+91 98203 54455', department: 'Engineering', designation: 'Team Lead', salary: 2000000,
+    joiningDate: '2020-06-15', status: 'Active', role: 'Employee', reportingManagerId: 'emp-007',
+    profileImage: avatar(18),
+  },
+  {
+    id: 'emp-015', employeeId: 'ORB-1015', name: 'Tara Bhatt', email: 'tara.bhatt@orbit.io',
+    phone: '+91 98203 65566', department: 'Engineering', designation: 'Senior Associate', salary: 1650000,
+    joiningDate: '2020-08-03', status: 'Active', role: 'Employee', reportingManagerId: 'emp-007',
+    profileImage: avatar(34),
+  },
+  {
+    id: 'emp-016', employeeId: 'ORB-1016', name: 'Karan Joshi', email: 'karan.joshi@orbit.io',
+    phone: '+91 98203 76677', department: 'Engineering', designation: 'Associate', salary: 1200000,
+    joiningDate: '2021-01-19', status: 'Active', role: 'Employee', reportingManagerId: 'emp-008',
+    profileImage: avatar(19),
+  },
+  {
+    id: 'emp-017', employeeId: 'ORB-1017', name: 'Riya Saxena', email: 'riya.saxena@orbit.io',
+    phone: '+91 98203 87788', department: 'Engineering', designation: 'Associate', salary: 1150000,
+    joiningDate: '2021-03-08', status: 'Inactive', role: 'Employee', reportingManagerId: 'emp-008',
+    profileImage: avatar(35),
+  },
+  {
+    id: 'emp-018', employeeId: 'ORB-1018', name: 'Aditya Kulkarni', email: 'aditya.kulkarni@orbit.io',
+    phone: '+91 98203 98899', department: 'Product', designation: 'Senior Associate', salary: 1550000,
+    joiningDate: '2021-04-26', status: 'Active', role: 'Employee', reportingManagerId: 'emp-009',
+    profileImage: avatar(20),
+  },
+  {
+    id: 'emp-019', employeeId: 'ORB-1019', name: 'Pooja Reddy', email: 'pooja.reddy@orbit.io',
+    phone: '+91 98204 09900', department: 'Design', designation: 'Senior Associate', salary: 1500000,
+    joiningDate: '2021-05-30', status: 'Active', role: 'Employee', reportingManagerId: 'emp-010',
+    profileImage: avatar(36),
+  },
+  {
+    id: 'emp-020', employeeId: 'ORB-1020', name: 'Nikhil Anand', email: 'nikhil.anand@orbit.io',
+    phone: '+91 98204 11011', department: 'Design', designation: 'Associate', salary: 1050000,
+    joiningDate: '2021-07-12', status: 'Active', role: 'Employee', reportingManagerId: 'emp-010',
+    profileImage: avatar(21),
+  },
+  {
+    id: 'emp-021', employeeId: 'ORB-1021', name: 'Divya Menon', email: 'divya.menon@orbit.io',
+    phone: '+91 98204 22122', department: 'Sales', designation: 'Associate', salary: 980000,
+    joiningDate: '2021-09-01', status: 'Active', role: 'Employee', reportingManagerId: 'emp-011',
+    profileImage: avatar(37),
+  },
+  {
+    id: 'emp-022', employeeId: 'ORB-1022', name: 'Farhan Ali', email: 'farhan.ali@orbit.io',
+    phone: '+91 98204 33233', department: 'Sales', designation: 'Associate', salary: 950000,
+    joiningDate: '2021-10-18', status: 'Inactive', role: 'Employee', reportingManagerId: 'emp-011',
+    profileImage: avatar(22),
+  },
+  {
+    id: 'emp-023', employeeId: 'ORB-1023', name: 'Simran Kaur', email: 'simran.kaur@orbit.io',
+    phone: '+91 98205 44344', department: 'Marketing', designation: 'Associate', salary: 990000,
+    joiningDate: '2022-01-05', status: 'Active', role: 'Employee', reportingManagerId: 'emp-012',
+    profileImage: avatar(38),
+  },
+  {
+    id: 'emp-024', employeeId: 'ORB-1024', name: 'Om Prakash', email: 'om.prakash@orbit.io',
+    phone: '+91 98205 55455', department: 'Finance', designation: 'Manager', salary: 2150000,
+    joiningDate: '2019-12-09', status: 'Active', role: 'Employee', reportingManagerId: 'emp-001',
+    profileImage: avatar(23),
+  },
+  {
+    id: 'emp-025', employeeId: 'ORB-1025', name: 'Lavanya Pillai', email: 'lavanya.pillai@orbit.io',
+    phone: '+91 98205 66566', department: 'Finance', designation: 'Senior Associate', salary: 1400000,
+    joiningDate: '2020-10-22', status: 'Active', role: 'Employee', reportingManagerId: 'emp-024',
+    profileImage: avatar(39),
+  },
+  {
+    id: 'emp-026', employeeId: 'ORB-1026', name: 'Aryan Bajaj', email: 'aryan.bajaj@orbit.io',
+    phone: '+91 98205 77677', department: 'Operations', designation: 'Manager', salary: 1980000,
+    joiningDate: '2020-03-16', status: 'Active', role: 'Employee', reportingManagerId: 'emp-001',
+    profileImage: avatar(24),
+  },
+  {
+    id: 'emp-027', employeeId: 'ORB-1027', name: 'Kritika Suri', email: 'kritika.suri@orbit.io',
+    phone: '+91 98206 88788', department: 'Operations', designation: 'Associate', salary: 920000,
+    joiningDate: '2022-02-14', status: 'Active', role: 'Employee', reportingManagerId: 'emp-026',
+    profileImage: avatar(40),
+  },
+  {
+    id: 'emp-028', employeeId: 'ORB-1028', name: 'Rehan Siddiqui', email: 'rehan.siddiqui@orbit.io',
+    phone: '+91 98206 99899', department: 'Customer Support', designation: 'Manager', salary: 1750000,
+    joiningDate: '2020-07-27', status: 'Active', role: 'Employee', reportingManagerId: 'emp-001',
+    profileImage: avatar(26),
+  },
+  {
+    id: 'emp-029', employeeId: 'ORB-1029', name: 'Aisha Fernandes', email: 'aisha.fernandes@orbit.io',
+    phone: '+91 98206 10900', department: 'Customer Support', designation: 'Associate', salary: 780000,
+    joiningDate: '2022-04-09', status: 'Active', role: 'Employee', reportingManagerId: 'emp-028',
+    profileImage: avatar(41),
+  },
+  {
+    id: 'emp-030', employeeId: 'ORB-1030', name: 'Manav Chandra', email: 'manav.chandra@orbit.io',
+    phone: '+91 98206 21011', department: 'Customer Support', designation: 'Associate', salary: 760000,
+    joiningDate: '2022-06-01', status: 'Inactive', role: 'Employee', reportingManagerId: 'emp-028',
+    profileImage: avatar(27),
+  },
+  {
+    id: 'emp-031', employeeId: 'ORB-1031', name: 'Zara Hussain', email: 'zara.hussain@orbit.io',
+    phone: '+91 98207 32122', department: 'Engineering', designation: 'Intern', salary: 420000,
+    joiningDate: '2023-06-19', status: 'Active', role: 'Employee', reportingManagerId: 'emp-014',
+    profileImage: avatar(42),
+  },
+  {
+    id: 'emp-032', employeeId: 'ORB-1032', name: 'Ibrahim Qureshi', email: 'ibrahim.qureshi@orbit.io',
+    phone: '+91 98207 43233', department: 'Engineering', designation: 'Intern', salary: 420000,
+    joiningDate: '2023-06-19', status: 'Active', role: 'Employee', reportingManagerId: 'emp-014',
+    profileImage: avatar(28),
+  },
+  {
+    id: 'emp-033', employeeId: 'ORB-1033', name: 'Nisha Gowda', email: 'nisha.gowda@orbit.io',
+    phone: '+91 98207 54344', department: 'Product', designation: 'Associate', salary: 1080000,
+    joiningDate: '2022-08-22', status: 'Active', role: 'Employee', reportingManagerId: 'emp-009',
+    profileImage: avatar(43),
+  },
+  {
+    id: 'emp-034', employeeId: 'ORB-1034', name: 'Advait Rane', email: 'advait.rane@orbit.io',
+    phone: '+91 98207 65455', department: 'Marketing', designation: 'Senior Associate', salary: 1350000,
+    joiningDate: '2021-11-15', status: 'Active', role: 'Employee', reportingManagerId: 'emp-012',
+    profileImage: avatar(45),
+  },
+  {
+    id: 'emp-035', employeeId: 'ORB-1035', name: 'Fatima Noor', email: 'fatima.noor@orbit.io',
+    phone: '+91 98208 76566', department: 'Human Resources', designation: 'Associate', salary: 880000,
+    joiningDate: '2022-09-30', status: 'Active', role: 'Employee', reportingManagerId: 'emp-006',
+    profileImage: avatar(44),
+  },
+];
